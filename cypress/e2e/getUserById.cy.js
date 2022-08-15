@@ -13,11 +13,14 @@ describe('Test Suite', () => {
   const api = new Api();
 
   it('Test Case', () => {
-    const lastUserId = 200; // я зробив до 200 тому що 201-ого юзера немає (видавало помилку)
+    const lastUserId = 210; 
+    let result = [];
     for (let i = 1; i <= lastUserId; i++) {
       api.getUserById(i).then(response => {
-        if (response.body.title.length > 20) console.log(response.body.title);
-      });
+        if (response.body.title.length > 20) result.push(response.body.title)
+        console.log(response.body.title);
+      }); 
     }
+    console.log(result)
   })
 })
